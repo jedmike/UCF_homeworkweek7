@@ -1,4 +1,5 @@
 alert("ALLGOOD");
+console.log(tn);
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
