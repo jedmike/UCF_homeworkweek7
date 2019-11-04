@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jed's A-Line Train Schedule</title>
+    <link rel=" stylesheet " href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css " integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T " crossorigin="anonymous ">
+    <link rel="stylesheet " href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class "container">
+        <div class "row"></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="card border-dark mb-3" style="max-width: 100%%">
+                <!-- <div class="card-header">Header</div> -->
+                <div class="card-body text-dark">
+                    <div class="jumbotron">
+                        <h1 class="text-center" "display-4">Train TIme</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class "row"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div id="trainList">
+            <div class="card border-dark mb-3" style="max-width: 100%">
+                <div class="text-center" "card-header">
+                    <h2>Current Train Schedule</h2>
+                </div>
+                <div class="card-body text-dark">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency(min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Train 1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+    <div>
+
+        <div id="trainEntry">
+            <div class "row"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="card border-dark mb-3" style="max-width: 100">
+                    <div class="text-center" "card-header">Train Schedule Data Entry</div>
+                    <div class="card-body text-dark">
+                        <form>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </form>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js "></script>
+    <script stype="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    <script src="./assets/javascript/traintime.js"></script>
+</body>
+
+</html>
