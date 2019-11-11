@@ -1,21 +1,19 @@
 alert("ALLGOOD");
 var today = new Date();
+// Non moment way to get time
 var currenttime = today.getHours() + ":" + today.getMinutes();
 var currentHr = today.getHours();
 var currentMin = today.getMinutes();
 var currentTime = moment();
 console.log(currentTime);
+console.log(currenttime);
+console.log(currentMin);
 var trNam = "";
 var trdest = "";
 var trfreq = "";
-var trfirstT = "";
+var trFirstT = "";
 
-console.log(currenttime);
-console.log(currentHr);
-console.log(currentMin);
-// console.log(tranEnt);
 
-// Your web app's Firebase configuration
 // Initialize Firebase
 var firebaseConfig = {
     apiKey: "AIzaSyCoryH91NBegczmhVDYYvzAtY4JTrcNgOY",
@@ -29,44 +27,43 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-// database.ref().push("Hello");
-// console.log("111111111111111")
-//submit new train dat
+
+//Add New Train data to the database
+
 $("#addTrain-btn").on("click", function(event) {
     event.preventDefault();
 
     var trNam = $("#trainName-input").val().trim();
     var trdest = $("#destination-input").val().trim();
     var trfreq = $("#frequency-input").val();
-    var trfirstT = $("#firstTime-input").val();
+    var trFirstT = $("#firstTime-input").val().trim();
 
-
-    // Creates local "temporary" object for holding train data
+    // Object to hole each new train entry
     var newTrain = {
         name: trNam,
         destination: trdest,
         frequency: trfreq,
-        firstTime: trfirstT
+        firstTime: trFirstT
     };
 
 
-    // Uploads employee data to the database
+    // Uploads Train data to the database
     database.ref().push(newTrain);
 
-    // Logs everything to console
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    console.log(newTrain.name);
-    console.log(newTrain.destination);
-    console.log(newTrain.freqquency);
-    console.log(newTrain.firstTime);
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    alert("Train successfully added");
-    console.log("buton clicked");
+    // // Logs everything to console
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    // console.log(newTrain.name);
+    // console.log(newTrain.destination);
+    // console.log(newTrain.freqquency);
+    // console.log(newTrain.firstTime);
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    // alert("Train successfully added");
+    // console.log("buton clicked");
     // Clears all of the text-boxes
-    $("#trainName-input").val("");
-    $("#destination-input").val("");
-    $("#frequency-input").val("");
-    $("#firstTime-inputt").val("");
+    // $("#trainName-input").val("");
+    // $("#destination-input").val("");
+    // $("#frequency-input").val("");
+    // $("#firstTime-inputt").val("");
 
 
 });
@@ -80,31 +77,23 @@ database.ref().on("child_added", function(childSnapshot) {
     var trNam = childSnapshot.val().name
     var trdest = childSnapshot.val().destination;
     var trfreq = childSnapshot.val().frequency;
-    var trfirstT = childSnapshot.val().firstTime;
+    var trFirstT = childSnapshot.val().firstTime;
+
 
 
     console.log("::::::::::::::::::::::::::::::::::::");
     console.log(trNam);
     console.log(trdest);
     console.log(trfreq);
-    console.log(trfirstT);
+    console.log(trFirstT);
     console.log("::::::::::::::::::::::::::::::::::::");
+
+    //Calculate train timint
+    var initialTrTime = moment(trFirstT, "HH:mm ");
+    console.log("::::::::::::::::::::::::::::::::::::");
+    console.log(trFirstT);
+    console.log("::::::::::::::::::::::::::::::::::::");
+    console.log("____________________________________");
+    console.log(initialTrTime);
+    console.log("____________________________________");
 })
-
-
-
-
-// // Prettify the employee start
-// var trstarttime = moment.unix(trfirstT.format("HH:mm");
-
-//         // Calculate the months worked using hardcore math
-//         // To calculate the months worked
-//         var empMonths = moment().diff(moment(empStart, "X"), "months");
-//         //(time stored at emp init in Unix format, Unix format - months)
-//         console.log(empMonths);
-
-//         // Calculate the total billed rate
-//         var empBilled = empMonths * empRate; console.log(empBilled);
-
-//         // console.log("pressedoutside");
-//         // console.log(trNam);
