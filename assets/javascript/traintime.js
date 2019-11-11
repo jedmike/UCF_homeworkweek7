@@ -1,6 +1,18 @@
-// alert("ALLGOOD");
+alert("ALLGOOD");
+var today = new Date();
+var currenttime = today.getHours() + ":" + today.getMinutes();
+var currentHr = today.getHours();
+var currentMin = today.getMinutes();
+var currentTime = moment();
+console.log(currentTime);
+var trNam = "";
+var trdest = "";
+var trfreq = "";
+var trfirstT = "";
 
-var tranEnt = ["trainName", "dest", "freQ", "firstTT"];
+console.log(currenttime);
+console.log(currentHr);
+console.log(currentMin);
 // console.log(tranEnt);
 
 // Your web app's Firebase configuration
@@ -17,24 +29,16 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-console.log("BB")
-    // database.ref().push({
-
+// database.ref().push("Hello");
+// console.log("111111111111111")
 //submit new train dat
-$("enter").on("click", function(event) {
+$("#addTrain-btn").on("click", function(event) {
     event.preventDefault();
-    console.log(event)
 
-    var trNam = 1;
-    var trdest = 2;
-    var trfreq = 3;
-    var trfirstT = 4;
-
-    // var trNam = $("#train-Name").val().trim();
-    // var trdest = $("#dest-input").val().trim();
-    // var trfreq = $("#frequency-input").val();
-    // var trfirstT = $("#frsttime-input").val();
-    console.log("A")
+    var trNam = $("#trainName-input").val().trim();
+    var trdest = $("#destination-input").val().trim();
+    var trfreq = $("#frequency-input").val();
+    var trfirstT = $("#firstTime-input").val();
 
 
     // Creates local "temporary" object for holding train data
@@ -44,44 +48,51 @@ $("enter").on("click", function(event) {
         frequency: trfreq,
         firstTime: trfirstT
     };
-    console.log("B")
+
 
     // Uploads employee data to the database
     database.ref().push(newTrain);
-    console.log("C")
 
     // Logs everything to console
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     console.log(newTrain.name);
     console.log(newTrain.destination);
     console.log(newTrain.freqquency);
     console.log(newTrain.firstTime);
-
-    alert("Employee successfully added");
-
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    alert("Train successfully added");
+    console.log("buton clicked");
     // Clears all of the text-boxes
-    $("#train-Name").val("");
-    $("#dest-input").val("");
+    $("#trainName-input").val("");
+    $("#destination-input").val("");
     $("#frequency-input").val("");
-    $("#frsttime-input").val("");
+    $("#firstTime-inputt").val("");
 
 
 });
 
-// database.ref().on("child_added", function(childSnapshot) {
-//     console.log(childSnapshot.val());
+database.ref().on("child_added", function(childSnapshot) {
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    console.log(childSnapshot.val());
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-//     // Store everything into a variable.
-//     var trNam = childSnapshot.val().name
-//     var trdest = childSnapshot.val().destination;
-//     var trfreq = childSnapshot.val().frequency;
-//     var trfirstT = childSnapshot.val().firstTime;
+    // Store everything into a variable.
+    var trNam = childSnapshot.val().name
+    var trdest = childSnapshot.val().destination;
+    var trfreq = childSnapshot.val().frequency;
+    var trfirstT = childSnapshot.val().firstTime;
 
-//     // Employee Info
-//     console.log(trNam);
-//     console.log(trdest);
-//     console.log(trfreq);
-//     console.log(trfirstT);
-// })
+
+    console.log("::::::::::::::::::::::::::::::::::::");
+    console.log(trNam);
+    console.log(trdest);
+    console.log(trfreq);
+    console.log(trfirstT);
+    console.log("::::::::::::::::::::::::::::::::::::");
+})
+
+
+
 
 // // Prettify the employee start
 // var trstarttime = moment.unix(trfirstT.format("HH:mm");

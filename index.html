@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jed's A-Line Train Schedule</title>
     <link rel=" stylesheet " href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css " integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T " crossorigin="anonymous ">
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js "></script>
+    <script stype="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
     <link rel="stylesheet " href="./assets/css/style.css">
 </head>
 
@@ -77,22 +81,22 @@
                             <form>
 
                                 <div class="form-group">
-                                    <label for="employee-name-input">Train Name</label>
-                                    <input class="form-control" id="train-Name" placeholder="Aytime Limited" type="text">
+                                    <label for="trainName-input">Train Name</label>
+                                    <input class="form-control" id="trainName-input" placeholder="Aytime Limited" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <label for="role-input">Destination</label>
-                                    <input class="form-control" id="dest-input" placeholder="Anycity" type="text">
+                                    <label for="destination-input">Destination</label>
+                                    <input class="form-control" id="destination-input" placeholder="Anycity" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <label for="start-input">Frequency</label>
+                                    <label for="frequency-input">Frequency</label>
                                     <input class="form-control" id="frequency-input" placeholder="min" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <label for="rate-input">First Train Time</label>
-                                    <input class="form-control" id="frsttime-input" placeholder="13:10" type="text">
+                                    <label for="firstTime-input">First Train Time</label>
+                                    <input class="form-control" id="firstTime-input" placeholder="13:10" type="text">
                                 </div>
-                                <button class="btn btn-primary float-right" id="add-train-btn">Add Train</button>
+                                <button class="btn btn-primary float-right" id="addTrain-btn">Add Train</button>
                                 <!-- <div class="form-group">
                                     <label for="tn">Train Name</label>
                                     <input type="text" class="form-control" id="trainN">
@@ -129,10 +133,7 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js "></script>
-    <script stype="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+
     <script src="./assets/javascript/traintime.js"></script>
 </body>
 
