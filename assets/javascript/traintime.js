@@ -1,4 +1,4 @@
-alert("ALLGOOD");
+// alert("ALLGOOD");
 var today = new Date();
 // Non moment way to get time
 var currenttime = today.getHours() + ":" + today.getMinutes();
